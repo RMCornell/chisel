@@ -39,7 +39,12 @@ class ConverterTest < MiniTest::Test
 
 	def test_it_converts_em_tags
 		converter = Converter.new("You just *have* to try the cheesecake,")
-		assert_equal "You just <em>have</em> to try the cheesecake,", converter.open_em_tags
+		assert_equal "You just <em>have</em> to try the cheesecake,", converter.em_tags
+	end
+
+	def test_it_converts_strong_tags
+		converter = Converter.new("**Food & Wine** this place has been packed every night.")
+		assert_equal "<strong>Food & Wine</strong> this place has been packed every night.", converter.strong_tags
 	end
 
 
