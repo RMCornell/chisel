@@ -47,10 +47,34 @@ class ConverterTest < MiniTest::Test
 		assert_equal "<strong>Food & Wine</strong> this place has been packed every night.", converter.strong_tags
 	end
 
+	def test_it_converts_strong_and_em_tags_mixed_in_same_line
+		converter = Converter.new("My *emphasized and **stronged** text* is awesome.")
+		assert_equal "My <em>emphasized and <strong>stronged</strong> text</em> is awesome.", converter.nested_tags
+	end
 	def test_it_converts_ampersand
 		converter = Converter.new("Food & Wine")
 		assert_equal "Food &amp; Wine", converter.ampersand_tags
 	end
+
+	def test_it_adds_closing_p_tags_to_paragraph
+		message = "This is line one of paragraph one\nThis is line two of paragraph one\n\nThis is paragraph two\nThis is line two of paragraph two\n\nThis is paragraph three"
+		converter = Converter.new(message)
+		result = "This is line one of paragraph one
+This is line two of paragraph one
+</p>
+
+<p>
+This is paragraph two
+This is line two of paragraph two
+</p>
+
+<p>
+This is paragraph three"
+		assert_equal result, converter.paragraph_tags
+	end
+
+
+
 
 
 

@@ -125,15 +125,17 @@ Which is turned into:
     
 ##Level 4 - Links
 
-At this point you're familiar with the basics of how Markdown works. Go straight to the source to see how HTML links should work. You do not need to implement the "Reference-Style Links", just the normal inline ones.
+At this point you're familiar with the basics of how Markdown works. Go straight to the *source to see how HTML links should work. You do not need to implement the "Reference-Style Links", just the normal* inline ones.
 
 ##Extensions
 
 If you finish all the base expectations, consider implementing two of these extensions:
 
-##Images
+##Imag#es
 
 Add support for images, both with and without the optional title attribute. Don't implement the Reference-Style Links. See the specification
+
+hi there #hjhhjjh
 
 ##Blocks & Blockquotes
 
