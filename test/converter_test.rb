@@ -37,6 +37,11 @@ class ConverterTest < MiniTest::Test
 		assert_equal "<h5>My Life in Desserts</h5>\n", converter.convert_headlines
 	end
 
+	def test_it_converts_em_tags
+		converter = Converter.new("You just *have* to try the cheesecake,")
+		assert_equal "You just <em>have</em> to try the cheesecake,", converter.open_em_tags
+	end
+
 
 
 end
