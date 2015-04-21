@@ -47,6 +47,12 @@ class ConverterTest < MiniTest::Test
 		assert_equal "<strong>Food & Wine</strong> this place has been packed every night.", converter.strong_tags
 	end
 
+	def test_it_converts_ampersand
+		converter = Converter.new("Food & Wine")
+		assert_equal "Food &amp; Wine", converter.ampersand_tags
+	end
+
+
 
 
 end
