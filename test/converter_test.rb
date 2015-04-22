@@ -17,6 +17,8 @@ class HeadlineConverterTest < MiniTest::Test
 		headline = HeadlineConverter.new("#Testing H1 Tags")
 		assert_equal "<h1>Testing H1 Tags</h1>", headline.h1_tag
 	end
+
+	def test_it_converts_h2_tags
 end
 
 class EmphasisConverterTest < MiniTest::Test
