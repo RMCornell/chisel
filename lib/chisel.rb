@@ -1,6 +1,6 @@
 require 'pry'
 require_relative 'parser'
-require_relative 'converter'
+require_relative 'Converter'
 
 class Chisel < Converter
 

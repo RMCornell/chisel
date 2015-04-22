@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/converter'
+require './lib/Converter'
 
 class ConverterTest < MiniTest::Test
 	def test_converter_exists
