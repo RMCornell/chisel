@@ -3,18 +3,25 @@ require_relative 'parser'
 require_relative 'Converter'
 
 class Chisel < Converter
-
+	attr_accessor :message
 	def initialize(message)
-		@message = message
-
+		@message = File.readlines(ARGV[0])
 	end
+
+	def html_convert
+		message.map do |line|
+			if line.start_with?("#")
+				HeadlineConverter.new(line).convert_headlines
+			end
+		end
+	end
+
+
 end
 
-message = File.readlines(ARGV[0])
-converter = Converter.new(message)
-converter.convert_headlines
-
-
+chisel = Chisel.new(ARGV[0])
+puts chisel.html_convert
+binding.pry
 
 =begin
 require './lib/header_converter'

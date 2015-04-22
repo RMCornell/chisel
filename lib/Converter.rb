@@ -32,7 +32,22 @@ class HeadlineConverter
 	def h5_tag
 		headline.gsub(/^##### *(.*?)$/, '<h5>\\1</h5>')
 	end
+
+	def convert_headlines
+		if headline.scan(/#/).count == 1
+			h1_tag
+		elsif headline.scan(/#/).count == 2
+			h2_tag
+		elsif headline.scan(/#/).count == 3
+			h3_tag
+		elsif headline.scan(/#/).count == 4
+			h4_tag
+		else headline.scan(/#/).count == 5
+			h5_tag
+		end
+	end
 end
+
 
 class EmphasisConverter
 	attr_reader :emphasis
