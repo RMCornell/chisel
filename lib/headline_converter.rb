@@ -34,9 +34,11 @@ class HeadlineConverter
 			h3_tag
 		elsif headline.scan(/#/).count == 2
 			h2_tag
-		else
+		elsif
 			headline.scan(/#/).count == 1
 			h1_tag
+		else
+			headline
 		end
 	end
 end

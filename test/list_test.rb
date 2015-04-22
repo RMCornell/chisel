@@ -1,14 +1,15 @@
 require_relative 'test_helper'
 require './lib/list_converter'
 
-class ListHeaderTest < MiniTest::Test
+class ListTest < MiniTest::Test
 	def test_list_header_exists
-		assert ListHeader.new("List Header:")
+		assert List.new("List Header:")
 	end
 
-	def test_it_converts_list_header
-		header = ListHeader.new("\nList Header:")
-		assert_equal "<p>
-List Header:", header.list_header
+	def test_it_adds_list_item_tags
+		list = List.new("* List Item")
+		assert_equal "<li>List Item</li>", list.list_items
 	end
+
+
 end

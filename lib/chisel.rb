@@ -4,6 +4,7 @@ require_relative 'strong_converter'
 require_relative 'emphasis_converter'
 require_relative 'symbol_converter'
 require_relative 'paragraph_converter'
+require_relative 'list_converter'
 
 class Chisel
 	attr_accessor :message
@@ -16,6 +17,7 @@ class Chisel
 			StrongConverter.new(line).convert_strong
 			EmphasisConverter.new(line).convert_emphasis
 			SymbolConverter.new(line).convert_symbol
+			List.new(line).list_items
 		end
 	end
 
@@ -29,6 +31,6 @@ end
 chisel = Chisel.new
 puts chisel.header_conversion
 
-binding.pry
+
 
 

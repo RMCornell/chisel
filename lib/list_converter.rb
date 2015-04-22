@@ -1,19 +1,18 @@
 
-class ListHeader
-	attr_reader :header
+class List
+	attr_reader :list_item
 
-	def initialize(header)
-		@header = header
+	def initialize(list_item)
+		@list_item = list_item
 	end
 
-	def list_header
-		header.gsub(/([\n])/) { |m| "<p>\n" }
+	def list_items
+		if list_item.start_with?("* ")
+			list_item.gsub!(/[*] (.*)$/, '<li>\\1</li>')
+		end
 	end
 =begin
-
-"hello".gsub /([aeiou])/, '<\1>'            #=> "h<e>ll<o>"
-"hello".gsub /([aeiou])/, "<\\1>"           #=> "h<e>ll<o>"
-"hello".gsub(/([aeiou])/){ |m| "<#{$1}>" }  #=> "h<e>ll<o>"
+headline.gsub!(/^#### *(.*?)$/, '<h4>\\1</h4>')
 
 				My favorite cuisines are:
 
