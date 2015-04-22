@@ -6,12 +6,10 @@ class ParagraphTag
 	end
 
 	def opening_paragraph_tag
-		# paragraph.gsub(/\n^./, "\n<p>\n")
-		"Hi front is working"
+		paragraph.gsub(/([a-zA-Z\w\W])/, "\n<p>\n\1\n</p>\n")
 	end
 
 	def closing_paragraph_tag
-		# message.gsub(/[\n][\n]/, "\n</p>\n")
 		"Hi end is working"
 	end
 end

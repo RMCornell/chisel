@@ -7,6 +7,6 @@ class EmphasisConverter
 
 	def convert_emphasis
 		emphasis.gsub!(/(\b[*])/, '</em>')
-		emphasis.gsub(/([*]\b)/, '<em>')
+		emphasis.gsub!(/([*]\b)/, '<em>')
 	end
 end

@@ -7,6 +7,6 @@ class StrongConverter
 
 	def convert_strong
 		strong.gsub!(/([*][*][^a-z]\b)/, '</strong> ')
-		strong.gsub(/([*][*]\b)/, '<strong>')
+		strong.gsub!(/([*][*]\b)/, '<strong>')
 	end
 end
