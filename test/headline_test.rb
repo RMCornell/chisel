@@ -1,4 +1,5 @@
 require_relative 'test_helper'
+require './lib/headline_converter'
 
 class HeadlineConverterTest < MiniTest::Test
 	def test_headline_converter_exists
@@ -33,42 +34,5 @@ class HeadlineConverterTest < MiniTest::Test
 		headline = HeadlineConverter.new("#####Testing H5 Tags")
 		assert_equal "<h5>Testing H5 Tags</h5>", headline.h5_tag
 		assert_equal "<h5>Testing H5 Tags</h5>", headline.convert_headlines
-	end
-end
-
-class EmphasisConverterTest < MiniTest::Test
-	def test_emphasis_converter_exists
-		assert EmphasisConverter.new("It Exists")
-	end
-
-	def test_it_converts_emphasis_tags
-		emphasis = EmphasisConverter.new("*Testing EM Tags*")
-		assert_equal "<em>Testing EM Tags</em>", emphasis.convert_emphasis
-	end
-end
-
-class StrongConverterTest < MiniTest::Test
-	def test_strong_converter_exists
-		assert StrongConverter.new("It Exists")
-	end
-
-	def test_it_converts_strong_tags
-		skip
-		strong = StrongConverter.new("**Testing Strong Tags**")
-		assert_equal "<strong>Testing Strong Tags</strong>", strong.convert_strong
-	end
-end
-
-class ParagraphTagTest < MiniTest::Test
-	def test_paragraph_tag_exists
-		assert ParagraphTag.new("It Exists")
-	end
-
-	def test_it_puts_opening_p_tag_at_start_of_paragraphs
-
-		paragraph = ParagraphTag.new("\n")
-		assert_equal "
-<p>
-", paragraph.opening_paragraph_tag
 	end
 end
