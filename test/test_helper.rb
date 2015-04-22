@@ -1,0 +1,6 @@
+require 'minitest/autorun'
+require 'minitest/pride'
+require './lib/headline_converter'
+require './lib/emphasis_converter'
+require './lib/strong_converter'
+require './lib/paragraph_converter'

@@ -1,12 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/Converter'
-
-class ConverterTest < MiniTest::Test
-	def test_converter_exists
-		assert Converter.new("It Exists")
-	end
-end
+require_relative 'test_helper'
 
 class HeadlineConverterTest < MiniTest::Test
 	def test_headline_converter_exists
@@ -61,6 +53,7 @@ class StrongConverterTest < MiniTest::Test
 	end
 
 	def test_it_converts_strong_tags
+		skip
 		strong = StrongConverter.new("**Testing Strong Tags**")
 		assert_equal "<strong>Testing Strong Tags</strong>", strong.convert_strong
 	end
@@ -69,5 +62,12 @@ end
 class ParagraphTagTest < MiniTest::Test
 	def test_paragraph_tag_exists
 		assert ParagraphTag.new("It Exists")
+	end
+
+	def test_it_puts_opening_p_tag_at_start_of_paragraphs
+		skip
+		paragraph = ParagraphTag.new("Testing opening paragraph tag")
+		assert_equal "<p>
+Testing opening paragraph tag ", paragraph.opening_paragraph_tag
 	end
 end
