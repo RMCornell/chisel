@@ -19,7 +19,7 @@ class Chisel
 		end
 	end
 
-	def header_converstion
+	def header_conversion
 		symbol_conversion.each do |line|
 			HeadlineConverter.new(line).convert_headlines
 		end
@@ -27,10 +27,8 @@ class Chisel
 end
 
 chisel = Chisel.new
-puts chisel.header_converstion
+puts chisel.header_conversion
 
+binding.pry
 
-
-
-#todo ampersand converter
 
