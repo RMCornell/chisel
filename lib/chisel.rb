@@ -12,6 +12,10 @@ class Chisel < Converter
 		message.map do |line|
 			if line.start_with?("#")
 				HeadlineConverter.new(line).convert_headlines
+			elsif line.match(/[*][*]/)
+				StrongConverter.new(line).convert_strong
+			elsif line.match(/[*]/)
+				EmphasisConverter.new(line).convert_emphasis
 			end
 		end
 	end

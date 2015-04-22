@@ -55,6 +55,11 @@ class EmphasisConverter
 	def initialize(emphasis)
 		@emphasis = emphasis
 	end
+
+	def convert_emphasis
+		emphasis.gsub!(/(\b[*])/, '</em>')
+		emphasis.gsub(/([*]\b)/, '<em>')
+	end
 end
 
 class StrongConverter
@@ -62,6 +67,11 @@ class StrongConverter
 
 	def initialize(strong)
 		@strong = strong
+	end
+
+	def convert_strong
+		strong.gsub!(/([*][*][^a-z]\b)/, '</strong> ')
+		strong.gsub(/([*][*]\b)/, '<strong>')
 	end
 end
 
@@ -72,3 +82,38 @@ class ParagraphTag
 		@paragraph = paragraph
 	end
 end
+
+=begin
+def em_tags
+		message.gsub!(/[*][\s]/, '</em> ')
+		message.gsub(/[*]/, '<em>')
+	end
+
+	def strong_tags
+		message.gsub!(/([*][*][\s])/, '</strong> ')
+		message.gsub(/([*][*])/, '<strong>')
+	end
+
+	def ampersand_tags
+		message.gsub(/&/, "&amp;")
+	end
+
+	def nested_tags
+		message.gsub!(/[*][*]\b/, '<strong>')
+		message.gsub!(/(\b[*][*])/, '</strong>')
+		em_tags
+	end
+
+	def start_of_paragraph
+		if message.start_with? == message.match(/[\W]/)
+			convert_headlines
+		else
+			message.gsub(/[\b]/, "<p>")
+		end
+	end
+
+	def end_of_paragraph
+		message.gsub(/[\n][\n]/, "\n</p>\n")
+	end
+end
+=end

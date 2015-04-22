@@ -48,11 +48,21 @@ class EmphasisConverterTest < MiniTest::Test
 	def test_emphasis_converter_exists
 		assert EmphasisConverter.new("It Exists")
 	end
+
+	def test_it_converts_emphasis_tags
+		emphasis = EmphasisConverter.new("*Testing EM Tags*")
+		assert_equal "<em>Testing EM Tags</em>", emphasis.convert_emphasis
+	end
 end
 
 class StrongConverterTest < MiniTest::Test
 	def test_strong_converter_exists
 		assert StrongConverter.new("It Exists")
+	end
+
+	def test_it_converts_strong_tags
+		strong = StrongConverter.new("**Testing Strong Tags**")
+		assert_equal "<strong>Testing Strong Tags</strong>", strong.convert_strong
 	end
 end
 
