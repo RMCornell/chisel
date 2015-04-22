@@ -6,23 +6,23 @@ class HeadlineConverter
 	end
 
 	def h1_tag
-		headline.gsub(/^# *(.*?)$/, '<h1>\\1</h1>')
+		headline.gsub!(/^# *(.*?)$/, '<h1>\\1</h1>')
 	end
 
 	def h2_tag
-		headline.gsub(/^## *(.*?)$/, '<h2>\\1</h2>')
+		headline.gsub!(/^## *(.*?)$/, '<h2>\\1</h2>')
 	end
 
 	def h3_tag
-		headline.gsub(/^### *(.*?)$/, '<h3>\\1</h3>')
+		headline.gsub!(/^### *(.*?)$/, '<h3>\\1</h3>')
 	end
 
 	def h4_tag
-		headline.gsub(/^#### *(.*?)$/, '<h4>\\1</h4>')
+		headline.gsub!(/^#### *(.*?)$/, '<h4>\\1</h4>')
 	end
 
 	def h5_tag
-		headline.gsub(/^##### *(.*?)$/, '<h5>\\1</h5>')
+		headline.gsub!(/^##### *(.*?)$/, '<h5>\\1</h5>')
 	end
 
 	def convert_headlines

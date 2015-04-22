@@ -7,38 +7,30 @@ require_relative 'paragraph_converter'
 
 class Chisel
 	attr_accessor :message
-	def initialize(message)
-		@message = File.readlines(ARGV[0])
+	def initialize
+		@message = File.read(ARGV[0]).split("\n")
 	end
 
 	def symbol_conversion
-		convert = message.each do |line|
+		message.each do |line|
 			StrongConverter.new(line).convert_strong
 			EmphasisConverter.new(line).convert_emphasis
 			SymbolConverter.new(line).convert_symbol
-
-			# paragraph = ParagraphTag.new(line).opening_paragraph_tag
 		end
-		return convert
 	end
 
-	def headline_converstion
-		# message.map do |line|
-		# 	if line.match(/^#/)
-		# 		HeadlineConverter.new(line).convert_headlines
-		# 	elsif line.match(/[*][*]/)
-		# 		StrongConverter.new(line).convert_strong
-		# 	elsif line.match(/[*]/)
-		# 		EmphasisConverter.new(line).convert_emphasis
-		# 	elsif !line.match(/^#/)
-		# 		ParagraphTag.new(line).opening_paragraph_tag
-		# 	end
-		# end
+	def header_converstion
+		symbol_conversion.each do |line|
+			HeadlineConverter.new(line).convert_headlines
+		end
 	end
 end
 
-chisel = Chisel.new(ARGV[0])
-puts chisel.symbol_conversion
+chisel = Chisel.new
+puts chisel.header_converstion
+
+
+
 
 #todo ampersand converter
 

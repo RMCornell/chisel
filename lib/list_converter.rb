@@ -1,21 +1,46 @@
-class ListConverter
-	attr_reader :list_header, :list_item
 
-	def initialize(list_header)
-		@list_header = list_header
-		@list_items = list_item
+class ListHeader
+	attr_reader :header
+
+	def initialize(header)
+		@header = header
 	end
+
+	def list_header
+		header.gsub(/([\n])/) { |m| "<p>\n" }
+	end
+=begin
+
+"hello".gsub /([aeiou])/, '<\1>'            #=> "h<e>ll<o>"
+"hello".gsub /([aeiou])/, "<\\1>"           #=> "h<e>ll<o>"
+"hello".gsub(/([aeiou])/){ |m| "<#{$1}>" }  #=> "h<e>ll<o>"
+
+				My favorite cuisines are:
+
+				* Sushi
+				* Barbeque
+				* Mexican
+
+				<p>
+					My favorite cuisines are:
+				</p>
+
+				<ul>
+					<li>Sushi</ li>
+					<li>Barbeque</li>
+					<li>Mexican</ li>
+				</ul>
+=end
+
 end
 
 
-class SymbolConverter
-	attr_reader :symbol
 
-	def initialize(symbol)
-		@symbol = symbol
-	end
+=begin
 
-	def convert_symbol
-		@symbol.gsub!("&", "&amp;")
-	end
-end
+My favorite cuisines are:
+
+1. Sushi
+2. Barbeque
+3. Mexican
+=end

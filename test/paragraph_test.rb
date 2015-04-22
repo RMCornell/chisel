@@ -9,8 +9,6 @@ class ParagraphTagTest < MiniTest::Test
 	def test_it_puts_opening_p_tag_at_start_of_paragraphs
 
 		paragraph = ParagraphTag.new("\n")
-		assert_equal "
-<p>
-", paragraph.opening_paragraph_tag
+		assert_equal "</p>", paragraph.opening_paragraph_tag
 	end
 end
