@@ -1,8 +1,5 @@
 require 'pry'
-require_relative 'headers'
-require_relative 'symbols'
-require_relative 'lists'
-require_relative 'paragraphs'
+require_relative 'converter'
 
 class Chisel
 	attr_reader :message
@@ -12,15 +9,7 @@ class Chisel
 	end
 
 	def convert_to_html
-		message.each do |line|
-			Headers.new(line).convert_headers
-			Symbols.new(line).strong_tags
-			Symbols.new(line).emphasis_tags
-			Symbols.new(line).ampersand_symbol
-			Lists.new(line).ol_items
-			Lists.new(line).ul_items
-			Paragraphs.new(line).paragraph_tags
-		end
+		Converter.new.convert_to_html
 	end
 end
 
