@@ -1,14 +1,14 @@
-require_relative 'parser'
+require 'pry'
 require_relative 'converter'
 
-class Chisel < Converter
-	attr_accessor :message
-	def initialize(message)
-		@message = message
+class Chisel
+	def convert_to_html
+		Converter.new.convert_to_html
 	end
 end
 
-message = File.read(ARGV[0])
-chisel = Chisel.new(message)
-puts chisel.h2_tags
+chisel = Chisel.new.convert_to_html.join("")
 
+html_file = File.open(ARGV[1], "w")
+html_file << chisel
+html_file.close
