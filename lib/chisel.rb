@@ -1,7 +1,7 @@
 require 'pry'
 require_relative 'converter'
 
-class Chisel
+class Chisel < Converter
 	def convert_to_html
 		Converter.new.convert_to_html
 	end

@@ -5,15 +5,15 @@ class Headers
 	end
 
 	def h1_convert
-		header.gsub! /^[#] (.*?)$/, '<h1>\\1</h1>'
+		header.gsub! /^[#] *(.*?)$/, '<h1>\\1</h1>'
 	end
 
 	def h2_convert
-		header.gsub! /^[#][#] (.*?)$/, '<h2>\\1</h2>'
+		header.gsub! /^[#][#] *(.*?)$/, '<h2>\\1</h2>'
 	end
 
 	def h3_convert
-		header.gsub! /^[#][#][#] (.*?)$/, '<h3>\\1</h3>'
+		header.gsub! /^[#][#][#] *(.*?)$/, '<h3>\\1</h3>'
 	end
 
 	def h4_convert
@@ -25,15 +25,15 @@ class Headers
 	end
 
 	def convert_headers
-		if header.match(/^[#][#][#][#][#]/)
+		if header.count("#") == 5
 			h5_convert
-		elsif header.match(/^[#][#][#][#]/)
+		elsif header.count("#") == 4
 			h4_convert
-		elsif header.match(/^[#][#][#]/)
+		elsif header.count("#") == 3
 			h3_convert
-		elsif header.match(/^[#][#]/)
+		elsif header.count("#") == 2
 			h2_convert
-		elsif header.match(/^[#]/)
+		elsif header.count("#") == 1
 			h1_convert
 		else
 			header

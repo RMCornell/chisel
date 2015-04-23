@@ -28,6 +28,7 @@ class LinksTest < MiniTest::Test
 	end
 
 	def test_it_converts_hyperlink
+		skip
 		link = Links.new("This is [an example](http://example.com/ 'Title' ) inline link.")
 		assert_equal "some shit", link.convert_hyperlink
 	end
