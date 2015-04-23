@@ -1,5 +1,6 @@
 class Lists
 	attr_reader :list_items
+
 	def initialize(list_items)
 		@list_items = list_items
 	end
@@ -14,8 +15,7 @@ class Lists
 
 	def ol_items
 		if list_items[0].to_i > 0
-			"<ol>\n" + list_items.gsub!( /^\d. (.*?)$/, '<li>\\1</li>') + "\n</ol>"
+			"<ol>\n" + list_items.gsub!(/^\d. (.*?)$/, '<li>\\1</li>') + "\n</ol>"
 		end
 	end
 end
-
