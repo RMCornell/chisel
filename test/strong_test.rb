@@ -7,7 +7,7 @@ class StrongConverterTest < MiniTest::Test
 	end
 
 	def test_it_converts_strong_tags
-		skip
+
 		strong = StrongConverter.new("**Testing Strong Tags**")
 		assert_equal "<strong>Testing Strong Tags</strong>", strong.convert_strong
 	end

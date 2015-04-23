@@ -15,9 +15,10 @@ class List
 	def ordered_list_items
 		if list_item.scan(/^[0-9]./)
 			list_item.gsub!(/^[0-9]. (.*)$/, '<li>\\1</li>')
-
 		end
 	end
+
+
 =begin
 headline.gsub!(/^#### *(.*?)$/, '<h4>\\1</h4>')
 

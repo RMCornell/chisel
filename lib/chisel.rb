@@ -17,9 +17,11 @@ class Chisel
 			StrongConverter.new(line).convert_strong
 			EmphasisConverter.new(line).convert_emphasis
 			SymbolConverter.new(line).convert_symbol
-			List.new(line).list_items
+			List.new(line).unordered_list_items
+			List.new(line).ordered_list_items
 		end
 	end
+
 
 	def header_conversion
 		symbol_conversion.each do |line|
@@ -30,6 +32,8 @@ end
 
 chisel = Chisel.new
 puts chisel.header_conversion
+puts chisel.unordered_list_tags
+binding.pry
 
 
 
