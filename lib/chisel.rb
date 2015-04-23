@@ -31,10 +31,11 @@ class Chisel
 end
 
 chisel = Chisel.new
-puts chisel.header_conversion
-puts chisel.unordered_list_tags
-binding.pry
+converted_message = chisel.header_conversion
 
+html_file = File.open(ARGV[1], "w")
+html_file << converted_message.join("\n")
+html_file.close
 
 
 

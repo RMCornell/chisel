@@ -7,8 +7,10 @@ class List
 	end
 
 	def unordered_list_items
-		if list_item.start_with?("* ")
+		if list_item.start_with?("*")
 			list_item.gsub!(/[*] (.*)$/, '<li>\\1</li>')
+		else
+			list_item
 		end
 	end
 
@@ -17,6 +19,7 @@ class List
 			list_item.gsub!(/^[0-9]. (.*)$/, '<li>\\1</li>')
 		end
 	end
+
 
 
 =begin
