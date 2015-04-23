@@ -33,7 +33,7 @@ class HeadersTest < MiniTest::Test
 	def test_it_converts_h1_tags
 		header = Headers.new("# Convert H1 Tags")
 		assert_equal "<h1>Convert H1 Tags</h1>", header.h1_convert
-		assert_equal "<h1>Convert H1 Tags</h1>", header.h1_convert
+		assert_equal "<h1>Convert H1 Tags</h1>", header.convert_headers
 	end
 
 
