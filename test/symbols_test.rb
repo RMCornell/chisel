@@ -12,7 +12,6 @@ class SymbolsTest < MiniTest::Test
 	end
 
 	def test_it_converts_em_tags
-		skip
 		symbols = Symbols.new("*Convert Em Tags*")
 		assert_equal "<em>Convert Em Tags</em>", symbols.emphasis_tags
 	end
