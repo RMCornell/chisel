@@ -13,6 +13,9 @@ class ListsTest < MiniTest::Test
 
 	def test_it_handles_ordered_list_items
 		list = Lists.new("1. Ordered List Item")
-		assert_equal "<li>Ordered List Item</li>", list.ol_items
+		assert_equal "<ol>
+<li>Ordered List Item</li>
+</ol>
+", list.ol_items
 	end
 end

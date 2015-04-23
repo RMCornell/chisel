@@ -7,7 +7,7 @@ class Chisel < Converter
 	end
 end
 
-chisel = Chisel.new.convert_to_html.join("")
+chisel = Chisel.new.convert_to_html.join(" ")
 
 html_file = File.open(ARGV[1], "w")
 html_file << chisel

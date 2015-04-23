@@ -18,6 +18,14 @@ class Links
 		link.split(/[\s,(,)]/)
 	end
 
+	# def convert_hyperlink
+	# 	split_link.map do |x|
+	# 		if x == "[an example]"
+	# 			x = "<a href="
+	# 		end
+	# 	end
+	# end
+
 end
 
 #word.split(/[\s,']/)
