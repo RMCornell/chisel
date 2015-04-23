@@ -6,9 +6,16 @@ class List
 		@list_item = list_item
 	end
 
-	def list_items
+	def unordered_list_items
 		if list_item.start_with?("* ")
 			list_item.gsub!(/[*] (.*)$/, '<li>\\1</li>')
+		end
+	end
+
+	def ordered_list_items
+		if list_item.scan(/^[0-9]./)
+			list_item.gsub!(/^[0-9]. (.*)$/, '<li>\\1</li>')
+
 		end
 	end
 =begin
