@@ -12,6 +12,7 @@ class SymbolsTest < MiniTest::Test
 	end
 
 	def test_it_converts_em_tags
+		skip
 		symbols = Symbols.new("*Convert Em Tags*")
 		assert_equal "<em>Convert Em Tags</em>", symbols.emphasis_tags
 	end
@@ -23,8 +24,8 @@ class SymbolsTest < MiniTest::Test
 	end
 
 	def test_level_two_edge_case
-		skip
+
 		symbols = Symbols.new("My *emphasized and **stronged** text* is awesome")
-		assert_equal "Convert <em>emphasized and <strong>stronged</strong> text</em> is awesome", symbols.convert_symbols
+		assert_equal "My <em>emphasized and <strong>stronged</strong> text</em> is awesome", symbols.convert_symbols
 	end
 end

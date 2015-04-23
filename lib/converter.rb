@@ -16,6 +16,7 @@ class Converter
 			Symbols.new(line).strong_tags
 			Symbols.new(line).emphasis_tags
 			Symbols.new(line).ampersand_symbol
+			Symbols.new(line).convert_symbols
 			Lists.new(line).ol_items
 			Lists.new(line).ul_items
 			Paragraphs.new(line).paragraph_tags

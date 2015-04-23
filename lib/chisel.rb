@@ -2,12 +2,6 @@ require 'pry'
 require_relative 'converter'
 
 class Chisel
-	attr_reader :message
-
-	def initialize
-		@message = File.readlines(ARGV[0])
-	end
-
 	def convert_to_html
 		Converter.new.convert_to_html
 	end

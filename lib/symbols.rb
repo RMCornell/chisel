@@ -9,7 +9,7 @@ class Symbols
 	end
 
 	def emphasis_tags
-		symbols.gsub! /[*] *(.*?)[*]\s/, '<em>\\1</em>'
+		symbols.gsub! /[*] *(.*?)[*]/, '<em>\\1</em>'
 	end
 
 	def ampersand_symbol
@@ -17,10 +17,7 @@ class Symbols
 	end
 
 	def convert_symbols
-		if symbols.match(/[*][*]/)
-			strong_tags
-		elsif symbols.match(/[*]/)
-			emphasis_tags
-		end
+		strong_tags
+		emphasis_tags
 	end
 end
