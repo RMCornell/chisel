@@ -9,7 +9,7 @@ class Symbols
 	end
 
 	def emphasis_tags
-		symbols.gsub! /[*] *(.*?)[*]/, '<em>\\1</em>'
+		symbols.gsub! /[*] *(.*?)[*]\s/, '<em>\\1</em>'
 	end
 
 	def ampersand_symbol

@@ -8,15 +8,11 @@ class ListsTest < MiniTest::Test
 
 	def test_it_handles_unordered_list_items
 		list = Lists.new("* Unordered List Item")
-		assert_equal "<ul>
-<li>Unordered List Item</li>
-</ul>", list.ul_items
+		assert_equal "<li>Unordered List Item</li>", list.ul_items
 	end
 
 	def test_it_handles_ordered_list_items
 		list = Lists.new("1. Ordered List Item")
-		assert_equal "<ol>
-<li>Ordered List Item</li>
-</ol>", list.ol_items
+		assert_equal "<li>Ordered List Item</li>", list.ol_items
 	end
 end

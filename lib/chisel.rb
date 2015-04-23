@@ -14,19 +14,17 @@ class Chisel
 	def convert_to_html
 		message.each do |line|
 			Headers.new(line).convert_headers
-			Symbols.new(line).convert_symbols
+			Symbols.new(line).strong_tags
+			Symbols.new(line).emphasis_tags
 			Symbols.new(line).ampersand_symbol
-			Lists.new(line).ul_items
 			Lists.new(line).ol_items
+			Lists.new(line).ul_items
 			Paragraphs.new(line).paragraph_tags
-
 		end
 	end
 end
 
 chisel = Chisel.new.convert_to_html.join("")
-
-
 
 html_file = File.open(ARGV[1], "w")
 html_file << chisel

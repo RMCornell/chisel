@@ -6,4 +6,12 @@ class ParagraphsTest < MiniTest::Test
 		assert Paragraphs.new("Paragraphs")
 	end
 
+	def test_it_puts_opening_and_closing_para
+		paragraph = Paragraphs.new("paragraph")
+		assert_equal "
+<p>
+paragraph
+</p>", paragraph.paragraph_tags
+	end
+
 end
