@@ -1,5 +1,6 @@
 require 'pry'
-require_relative "headers"
+require_relative 'headers'
+require_relative 'symbols'
 
 class Chisel
 	attr_accessor :message
@@ -9,8 +10,12 @@ class Chisel
 	end
 
 	def convert_to_html
-		message.map do |line|
+		message.each do |line|
 			Headers.new(line).convert_headers
+			Symbols.new(line).convert_symbols
+			Symbols.new(line).ampersand_symbol
+
+
 
 		end
 
