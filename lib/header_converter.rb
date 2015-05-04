@@ -47,14 +47,3 @@ class HeaderConverter
     line.sub("###### ", "<h6>") + "</h6>"
   end
 end
-
-message =
-["# Converting H1 Headers",
-"## Converting H2 Headers",
-"### Converting H3 Headers",
-"#### Converting H4 Headers",
-"##### Converting H5 Headers",
-"###### Converting H6 Headers"]
-
-header = HeaderConverter.new(message)
-header.convert_all_headers

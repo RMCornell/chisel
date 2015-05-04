@@ -35,7 +35,7 @@ if __FILE__ == $0
   html_file << converted_message
   html_file.close
 
-  # puts "Converted #{input} (#{message.count("\n")} lines) to #{output} (#{converted_message.count("<\n>")} lines)"
+  puts "Converted #{ARGV[0]} (#{message.count("\n")} lines) to #{ARGV[1]} (#{converted_message.count("<\n>")} lines)"
 end
 
 
