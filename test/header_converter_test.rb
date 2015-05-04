@@ -2,12 +2,19 @@ require_relative 'test_helper'
 require './lib/header_converter'
 
 class HeaderConverterTest < MiniTest::Test
+  attr_reader :message
+  def setup
+    @message =
+["# My Life in Desserts\n, \n, ## Chapter 1: The Beginning\n, 'You just *have* to try the cheesecake,' he said. 'Ever since it appeared in\n\n,**Food & Wine** this place has been packed every night.'"]
+
+  end
+
   def test_header_converter_exists
-    assert HeaderConverter.new("Message")
+    assert HeaderConverter.new(message)
   end
 
   def test_h1_converts_header_tags
-    header = HeaderConverter.new("# Converting H1 Headers")
+    header = HeaderConverter.new(message)
     assert_equal "<h1>Converting H1 Headers</h1>", header.convert_h1_headers
     assert_equal "<h1>Converting H1 Headers</h1>", header.convert_all_headers
   end

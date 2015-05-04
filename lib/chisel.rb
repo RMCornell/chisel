@@ -1,4 +1,6 @@
 require 'pry'
+require './lib/header_converter'
+
 
 =begin
 Level 1 Basics
@@ -15,23 +17,25 @@ class Chisel
     @message = message
   end
 
-  def convert_to_html
-    #run methods here
-
+  def convert_html
+    message.split("\n\n").map do |line|
+      if line.match(/^[#]/)
+        HeaderConverter.new(line).convert_all_headers
+      end
+    end
   end
 
 end
 
 if __FILE__ == $0
-  input= ARGV[0]
-  output = ARGV[1]
-  message  = File.readlines(input)
-  converted_message      = Chisel.new(message).convert_to_html
-  File.write(output, "w")
+  input                 = ARGV[0]
+  message               = File.read(input)
+  converted_message     = Chisel.new(message).convert_html.join("\n\n")
+  html_file = File.open(ARGV[1], 'w')
+  html_file << converted_message
+  html_file.close
+
   # puts "Converted #{input} (#{message.count("\n")} lines) to #{output} (#{converted_message.count("<\n>")} lines)"
 end
 
-
-chisel = Chisel.new(converted_message)
-chisel.convert_to_html
 
